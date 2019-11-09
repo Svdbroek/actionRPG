@@ -39,6 +39,7 @@ let displayStats = () => {
     document.getElementById("health").innerHTML = hero.health;
     document.getElementById("weapon").innerHTML = hero.weapon.type;
     document.getElementById("damage").innerHTML = hero.weapon.damage;
+    
   }; // probably not elegant, but quick and dirty does the trick
   
 
@@ -89,13 +90,27 @@ let goTotheDungeon=()=>{
   document.getElementById('dungeon').style.visibility="visible"
   document.getElementById('cultist').style.visibility="visible"
   cultist.health = 12
+  document.querySelector('#monster-health-bar').style.width = hpBarMax
+  document.querySelector('#monster-health-bar').style.visibility="visible"
+  document.querySelector('html').style.backgroundImage = "url('imgs/backgroundDungeon.jpg')";
+
+
+
 }
 
 let backToTown =()=>{
   document.getElementById('dungeon').style.visibility="hidden"
   document.getElementById('town').style.visibility="visible"
   document.getElementById('loot').style.visibility="hidden"
+  document.querySelector('#monster-health-bar').style.visibility="hidden"
+  document.getElementById('cultist').style.visibility="hidden"
+  document.querySelector('html').style.backgroundImage = "url('imgs/backgroundTown.jpg')";
+
+
 }
+
+let hpBarMax = parseInt(getComputedStyle( document.querySelector('#monster-health-bar')).width)
+
 
 let fightTheMonster=(person,monster,monsterElement)=>{  
   person.health = person.health-monster.damage
@@ -107,8 +122,10 @@ let fightTheMonster=(person,monster,monsterElement)=>{
   }
 
   monster.health = monster.health-hero.weapon.damage
+  document.querySelector('#monster-health-bar').style.width = hpBarMax * monster.health/12
   if (monster.health <= 0){
     monsterElement.style.visibility="hidden"
+    document.querySelector('#monster-health-bar').style.visibility="hidden"
     document.getElementById
     if(monster.lootOwned) {
       document.getElementById('loot').style.visibility="visible"
@@ -116,4 +133,4 @@ let fightTheMonster=(person,monster,monsterElement)=>{
     }
   }
 
-}
+} 
