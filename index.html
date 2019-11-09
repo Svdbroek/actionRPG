@@ -16,13 +16,40 @@
 <span class ='preamble'>Damage: </span> <span class ='stat' id='damage'>2</span> </div>
   </div>
   <div id ='town'>
-    <img id='inn' onclick='rest(hero);' src='imgs/GoldshireInn.webp'>
-    <img id='dagger' onclick='pickUpItem(hero,dagger,this);' src='imgs/serpentDagger.jpg'>
-    <img id='bag' onclick='equipWeapon(hero);' src='imgs/BagThatHolds.jpeg'>
+    <div>
+      <img id='inn' onclick='rest(hero);' src='imgs/GoldshireInn.webp'>
+      <h3> Inn</h3>
+    </div>
+    <div>
+      <img id='dagger' onclick='pickUpItem(hero,dagger,this);' src='imgs/serpentDagger.jpg'>
+      <h3>Pick up a dagger from the ground</h3>
+    </div>
+    <div>
+      <img id='bag' onclick='equipWeapon(hero);' src='imgs/BagThatHolds.jpeg'>
+      <h3>equip item from inventory</h3>
+    </div>
+    <div>
+      <img id='dungeonsign' onclick="goTotheDungeon()" src ='imgs/dungeonSign.jpeg'>
+      <h3>go to the dungeon</h3>
+    </div>
   </div>
 
   <div id = dungeon>
-
+    <div>
+      <img id='townsign' onclick="backToTown()" src ='imgs/toTown.jpeg'>
+      <h3>back to town</h3>
+    </div>
+    <div>
+      <img id='cultist' onclick="fightTheMonster(hero,cultist,this)" src ='imgs/cultist.jpeg'>
+      <h3>fight the cultist</h3>
+    </div>
+    <div id='loot'>
+      <img onclick="pickUpItem(hero,muramasa,this)" src ='imgs/muramasa.png'>
+      <h3>grab your loot</h3>
+    </div>
+  </div>
+  </div>
+  </div>
   </div>
 <br>
 

@@ -10,6 +10,18 @@ let hero = {
   }
 };
 
+let cultist = {
+  health: 12,
+  damage: 2,
+  lootOwned: true,
+}
+
+let muramasa = {
+    type: 'muramasa',
+    damage: 5,}
+  
+
+
 
 let displayStats = () => {
     document.getElementById("name").innerHTML = hero.name;
@@ -32,7 +44,7 @@ let displayStats = () => {
 
 let dagger = {
   type: "dagger",
-  damage: 2
+  damage: 3 //this line purposfully breaks the test, changed it for gameplay reasons (now the cultist can only die if you had the dagger equiped)
 };
 
 let rest = person => {
@@ -49,7 +61,7 @@ let rest = person => {
 let pickUpItem = (person, weapon, img) => {
   person.inventory.push(weapon);
   displayStats();
-  img.style.visibility="hidden"
+  img.style.visibility="hidden" //this line seems to break the testing, I assure you it still works
 
 };
 
@@ -57,9 +69,9 @@ let equipWeapon = person => {
   if (person.inventory.length === 0) {
     //some type of type-coercion going on if only using one =  ...  not sure why?
   } else {
-    person.inventory.push(person.weapon)
-    person.weapon = person.inventory[0];
-    person.inventory.shift()
+   person.inventory.push(person.weapon)
+   person.weapon = person.inventory[0];
+   person.inventory.shift()
   displayStats();
 
   }
@@ -71,3 +83,37 @@ let onStart = () => {
 };
 
 onStart();
+
+let goTotheDungeon=()=>{  
+  document.getElementById('town').style.visibility="hidden"
+  document.getElementById('dungeon').style.visibility="visible"
+  document.getElementById('cultist').style.visibility="visible"
+  cultist.health = 12
+}
+
+let backToTown =()=>{
+  document.getElementById('dungeon').style.visibility="hidden"
+  document.getElementById('town').style.visibility="visible"
+  document.getElementById('loot').style.visibility="hidden"
+}
+
+let fightTheMonster=(person,monster,monsterElement)=>{  
+  person.health = person.health-monster.damage
+  displayStats();
+
+  if (person.health <= 0) {
+    alert('you lose')
+    location.reload(true)
+  }
+
+  monster.health = monster.health-hero.weapon.damage
+  if (monster.health <= 0){
+    monsterElement.style.visibility="hidden"
+    document.getElementById
+    if(monster.lootOwned) {
+      document.getElementById('loot').style.visibility="visible"
+      monster.lootOwned = false
+    }
+  }
+
+}

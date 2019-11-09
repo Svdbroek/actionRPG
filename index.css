@@ -7,3 +7,18 @@ img {
   display: flex;
   justify-content: space-around;
 }
+
+#town{
+  display: flex;
+  justify-content: space-around;
+}
+
+#dungeon{
+  display: flex;
+  justify-content: space-around;
+  visibility: hidden;
+}
+
+#loot{
+  visibility: hidden;
+}
