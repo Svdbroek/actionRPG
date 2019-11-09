@@ -8,16 +8,16 @@
 <body>
   <!-- 👍 YOUR HTML HERE 👍 -->
   <div id = 'stats'>
-<span class ='preamble'>Name: </span>  <span class ='stat' id='name'>somename</span> 
-<span class ='preamble'>Heroic: </span> <span class ='stat' id='heroic'>not yet</span> 
-<span class ='preamble'>Inventory: </span> <span class ='stat' id='inventory'>empty</span> 
-<span class ='preamble'>Health: </span> <span class ='stat' id='health'>10</span> 
-<span class ='preamble'>Weapon: </span> <span class ='stat' id='weapon'>pointy stick</span> 
-<span class ='preamble'>Damage: </span> <span class ='stat' id='damage'>2</span> 
+<div><span class ='preamble'>Name: </span>  <span class ='stat' id='name'>somename</span> </div>
+<div><span class ='preamble'>Heroic: </span> <span class ='stat' id='heroic'>not yet</span> </div>
+<div><span class ='preamble'>Inventory</span> <span class ='stat' id='inventory'>: </span> </div>
+<div><span class ='preamble'>Health: </span> <span class ='stat' id='health'>10</span> </div>
+<div><span class ='preamble'>Weapon: </span> <span class ='stat' id='weapon'>pointy stick</span> 
+<span class ='preamble'>Damage: </span> <span class ='stat' id='damage'>2</span> </div>
   </div>
   <div id ='town'>
     <img id='inn' onclick='rest(hero);' src='imgs/GoldshireInn.webp'>
-    <img id='dagger' onclick='pickUpItem(hero,dagger);' src='imgs/serpentDagger.jpg'>
+    <img id='dagger' onclick='pickUpItem(hero,dagger,this);' src='imgs/serpentDagger.jpg'>
     <img id='bag' onclick='equipWeapon(hero);' src='imgs/BagThatHolds.jpeg'>
   </div>
 

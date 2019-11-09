@@ -2,3 +2,8 @@ img {
   width: auto;
   height: 100px;
 }
+
+#stats{
+  display: flex;
+  justify-content: space-around;
+}

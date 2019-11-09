@@ -11,7 +11,7 @@ let hero = {
 };
 
 
-let updateParameters = () => {
+let displayStats = () => {
     document.getElementById("name").innerHTML = hero.name;
     if (hero.heroic) {
       document.getElementById("heroic").innerHTML = "TRUE HERO";
@@ -19,10 +19,9 @@ let updateParameters = () => {
       document.getElementById("heroic").innerHTML = "not yet";
     }
   
-    let invList = "";
+    let invList = ": ";
     for (let i = 0; i < hero.inventory.length; i++) {
-      invList += ", " + hero.inventory[i].type;
-      console.log(invList);
+      invList +=  hero.inventory[i].type+", " ;
     }
     document.getElementById("inventory").innerHTML = invList;
     document.getElementById("health").innerHTML = hero.health;
@@ -39,7 +38,7 @@ let dagger = {
 let rest = person => {
   if (person.health < 10) {
     person.health = 10;
-    updateParameters();
+    displayStats();
   } else {
     alert("You are already at full health");
   }
@@ -47,9 +46,10 @@ let rest = person => {
   // test seems to time out on return-check when alert is triggered, hit that buttton fast :)
 };
 
-let pickUpItem = (person, weapon) => {
+let pickUpItem = (person, weapon, img) => {
   person.inventory.push(weapon);
-  updateParameters();
+  displayStats();
+  img.style.visibility="hidden"
 
 };
 
@@ -59,14 +59,14 @@ let equipWeapon = person => {
   } else {
     person.weapon = person.inventory[0];
     
-  updateParameters();
+  displayStats();
 
   }
 };
 
 let onStart = () => {
   hero.name = window.prompt("what's your name?", "Lonk");
-  UIName = hero.name;
+  displayStats();
 };
 
 onStart();
