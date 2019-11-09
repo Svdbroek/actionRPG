@@ -57,8 +57,9 @@ let equipWeapon = person => {
   if (person.inventory.length === 0) {
     //some type of type-coercion going on if only using one =  ...  not sure why?
   } else {
+    person.inventory.push(person.weapon)
     person.weapon = person.inventory[0];
-    
+    person.inventory.shift()
   displayStats();
 
   }
